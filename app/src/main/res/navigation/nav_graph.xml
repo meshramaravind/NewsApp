@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/NewsFragment">
+
+    <fragment
+        android:id="@+id/NewsFragment"
+        android:name="com.arvind.newsapp.view.news.NewsFragment"
+        android:label="News"
+        tools:layout="@layout/fragment_news">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/headlinesNewsFragment"
+        android:name="com.arvind.newsapp.view.headline.HeadLinesNewsFragment"
+        android:label="Headline"
+        tools:layout="@layout/fragment_headlines_news" />
+    <fragment
+        android:id="@+id/sourcesNewsFragment"
+        android:name="com.arvind.newsapp.view.source.SourcesNewsFragment"
+        android:label="Source"
+        tools:layout="@layout/fragment_sources_news" />
+
+    <fragment
+        android:id="@+id/savedNewsFragment"
+        android:name="com.arvind.newsapp.view.saved.SavedNewsFragment"
+        android:label="Saved"
+        tools:layout="@layout/fragment_saved_news" />
+</navigation>
