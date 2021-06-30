@@ -11,4 +11,5 @@
 
     <color name="colorbgappbar">#212D3B</color>
     <color name="colorbackground">#1D2733</color>
+    <color name="colorgray">#FFFFFFFF</color>
 </resources>

@@ -8,21 +8,76 @@
         android:layout_height="match_parent"
         tools:context=".view.headlines.HeadlinesFragment">
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager_headlines"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:context=".view.news.NewsFragment">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tablayout_headlines"
-                style="@style/Widget.MaterialComponents.TabLayout.Colored"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_categories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                app:tabIndicatorFullWidth="false"
-                app:tabMode="scrollable"
-                app:tabPaddingEnd="16dp"
-                app:tabPaddingStart="16dp" />
-        </androidx.viewpager.widget.ViewPager>
+                android:layout_marginTop="@dimen/_50sdp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_headlinesnews"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_categories"
+                tools:listitem="@layout/items_news" />
+
+            <ProgressBar
+                android:id="@+id/progressBar_headlinenews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/black"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/tryAgainLayout_headlinenews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/rv_categories"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/rv_categories"
+                app:layout_constraintTop_toTopOf="@+id/rv_categories">
+
+                <TextView
+                    android:id="@+id/tryAgainMessage_headlinenews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Internet Connection"
+                    android:textColor="#BA000000"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tryAgainButton_headlinenews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Try Again"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

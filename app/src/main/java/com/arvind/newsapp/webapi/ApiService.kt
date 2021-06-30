@@ -30,7 +30,7 @@ interface ApiService {
         @Query("q")
         searchQuery: String,
         @Query("page")
-        pageNumber: Int = 1,
+        page: Int = 1,
         @Query("apiKey")
         apiKey: String = API_Key
     ): Response<NewsResponse>

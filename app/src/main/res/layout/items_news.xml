@@ -8,6 +8,7 @@
         <variable
             name="news"
             type="com.arvind.newsapp.response.Article" />
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -29,21 +30,38 @@
                 urlToImage="@{news.urlToImage}"
                 android:layout_width="158dp"
                 android:layout_height="0dp"
+                android:background="@drawable/bg_image_loader_"
                 android:contentDescription="@string/source_image"
                 android:scaleType="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_news_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_sans_bold"
+                android:maxLines="1"
+                android:text="@{news.source.name}"
+                android:textColor="@color/colorgray"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/articleImage"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:text="CNN" />
 
             <TextView
                 android:id="@+id/articleTitle"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="12dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/open_sans_bold"
                 android:text="@{news.title}"
                 android:textColor="#A4000000"
                 android:textSize="18sp"
@@ -52,11 +70,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/articleImage"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/sample_news_desc" />
 
             <TextView
                 android:id="@+id/articleDateTime"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginBottom="10dp"
@@ -65,8 +84,22 @@
                 android:text="@{news.publishedAt}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/articleImage" />
+                app:layout_constraintStart_toEndOf="@+id/articleImage"
+                tools:text=" 5 hours ago" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/ib_moreoptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="5dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_more_vert_24"
+                android:tint="#666666"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            </androidx.appcompat.widget.AppCompatImageButton>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,7 +9,7 @@ data class NewsResponse(
     val articles: List<Article>,
 )
 
-@Entity(tableName = "article_table")
+@Entity(tableName = "news_table")
 data class Article(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,

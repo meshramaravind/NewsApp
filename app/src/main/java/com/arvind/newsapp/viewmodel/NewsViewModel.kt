@@ -9,6 +9,7 @@ import com.arvind.newsapp.repository.NewsRepository
 import com.arvind.newsapp.response.NewsResponse
 import com.arvind.newsapp.storage.UIModeDataStore
 import com.arvind.newsapp.utils.Resource
+import com.arvind.newsapp.utils.categories
 import com.arvind.newsapp.utils.hasInternetConnection
 import com.arvind.newsapp.utils.toast
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -38,6 +39,12 @@ class NewsViewModel @Inject constructor(
 
     val newsData: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
 
+    private val newsDataTemp = MutableLiveData<Resource<NewsResponse>>()
+
+    private var news = 1
+    private var headlinenews = 1
+    private var searchNewsPage = 1
+
     init {
         getNews()
     }
@@ -46,11 +53,71 @@ class NewsViewModel @Inject constructor(
         fetchNews()
     }
 
+    fun getHeadlinesNews(category: String = categories.first()) = viewModelScope.launch {
+        fetchheadlinews(category)
+    }
+
+    fun getSearchNews(searchQuery: String) = viewModelScope.launch {
+        fetchsearchnews(searchQuery)
+    }
+
     private suspend fun fetchNews() {
         newsData.postValue(Resource.Loading())
         try {
             if (hasInternetConnection<NewsApp>()) {
                 val response = repository.getNews()
+                newsData.postValue(handleNewsResponse(response))
+            } else {
+                newsData.postValue(Resource.Error("No Internet Connection"))
+                toast(getApplication(), "No Internet Connection.!")
+            }
+        } catch (t: Throwable) {
+            when (t) {
+                is IOException -> newsData.postValue(
+                    Resource.Error(
+                        t.message!!
+                    )
+                )
+                else -> newsData.postValue(
+                    Resource.Error(
+                        t.message!!
+                    )
+                )
+            }
+        }
+    }
+
+    private suspend fun fetchheadlinews(category: String = categories.first()) {
+        newsData.postValue(Resource.Loading())
+        try {
+            if (hasInternetConnection<NewsApp>()) {
+                val response = repository.getTopHeadlines(category, headlinenews)
+                newsData.postValue(handleNewsResponse(response))
+            } else {
+                newsData.postValue(Resource.Error("No Internet Connection"))
+                toast(getApplication(), "No Internet Connection.!")
+            }
+        } catch (t: Throwable) {
+            when (t) {
+                is IOException -> newsData.postValue(
+                    Resource.Error(
+                        t.message!!
+                    )
+                )
+                else -> newsData.postValue(
+                    Resource.Error(
+                        t.message!!
+                    )
+                )
+            }
+        }
+    }
+
+    private suspend fun fetchsearchnews(searchQuery: String) {
+        newsData.postValue(Resource.Loading())
+        try {
+            if (hasInternetConnection<NewsApp>()) {
+                val response = repository.getSearchNews(searchQuery, searchNewsPage)
                 newsData.postValue(handleNewsResponse(response))
             } else {
                 newsData.postValue(Resource.Error("No Internet Connection"))

@@ -21,6 +21,7 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     override fun onBindViewHolder(holder: NewsAdapter.NewsViewHolder, position: Int) {
         val news = differ.currentList[position]
         holder.bind(news)
+
     }
 
     private val differCallback =
