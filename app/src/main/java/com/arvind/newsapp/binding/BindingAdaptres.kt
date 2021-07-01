@@ -1,6 +1,7 @@
 package com.arvind.newsapp.binding
 
 
+import android.net.Uri
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.arvind.newsapp.R
@@ -16,13 +17,45 @@ class BindingAdaptres @Inject constructor() {
         fun loadImage(view: ImageView, urlToImage: String?) {
             try {
                 Glide.with(view.context).setDefaultRequestOptions(RequestOptions())
-                    .load(urlToImage).placeholder(R.drawable.bg_image_loader_)
-                    .error(R.drawable.bg_image_loader_)
+                    .load(urlToImage).placeholder(R.drawable.bg_image_loader)
+                    .error(R.drawable.bg_image_loader)
                     .into(view)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
+
+        @BindingAdapter("url")
+        @JvmStatic
+        fun loadsourceImage(view: ImageView, url: String?) {
+            try {
+                val iconUrl = "https://besticon-demo.herokuapp.com/icon?url=%s&size=80..120..200"
+                val url = java.lang.String.format(iconUrl, Uri.parse(url).authority)
+                Glide.with(view.context).setDefaultRequestOptions(RequestOptions().circleCrop())
+                    .load(url).placeholder(R.drawable.bg_image_loader_source)
+                    .error(R.drawable.bg_image_loader_source)
+                    .into(view)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+
+        @BindingAdapter("urltonewssource")
+        @JvmStatic
+        fun loadnewssourcetoImage(view: ImageView, urltonewssource: String?) {
+            try {
+                val iconUrl = "https://besticon-demo.herokuapp.com/icon?url=%s&size=80..120..200"
+                val url = java.lang.String.format(iconUrl, Uri.parse(urltonewssource).authority)
+                Glide.with(view.context).setDefaultRequestOptions(RequestOptions().circleCrop())
+                    .load(url).placeholder(R.drawable.bg_image_loader_source)
+                    .error(R.drawable.bg_image_loader_source)
+                    .into(view)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
 
     }
 }

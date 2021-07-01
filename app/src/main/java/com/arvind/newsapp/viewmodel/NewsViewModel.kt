@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.arvind.newsapp.app.NewsApp
 import com.arvind.newsapp.repository.NewsRepository
 import com.arvind.newsapp.response.NewsResponse
+import com.arvind.newsapp.response.SourceResponse
 import com.arvind.newsapp.storage.UIModeDataStore
 import com.arvind.newsapp.utils.Resource
 import com.arvind.newsapp.utils.categories
@@ -39,6 +40,8 @@ class NewsViewModel @Inject constructor(
 
     val newsData: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
 
+    val newsSourcesData: MutableLiveData<Resource<SourceResponse>> = MutableLiveData()
+
     private val newsDataTemp = MutableLiveData<Resource<NewsResponse>>()
 
     private var news = 1
@@ -59,6 +62,10 @@ class NewsViewModel @Inject constructor(
 
     fun getSearchNews(searchQuery: String) = viewModelScope.launch {
         fetchsearchnews(searchQuery)
+    }
+
+    fun getSourcesNews() = viewModelScope.launch {
+        fetchSourcesNews()
     }
 
     private suspend fun fetchNews() {
@@ -137,6 +144,43 @@ class NewsViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    private suspend fun fetchSourcesNews() {
+        newsSourcesData.postValue(Resource.Loading())
+        try {
+            if (hasInternetConnection<NewsApp>()) {
+                val response = repository.getSourceNews()
+                newsSourcesData.postValue(handleSourceNewsResponse(response))
+            } else {
+                newsSourcesData.postValue(Resource.Error("No Internet Connection"))
+                toast(getApplication(), "No Internet Connection.!")
+            }
+        } catch (t: Throwable) {
+            when (t) {
+                is IOException -> newsSourcesData.postValue(
+                    Resource.Error(
+                        t.message!!
+                    )
+                )
+                else -> newsSourcesData.postValue(
+                    Resource.Error(
+                        t.message!!
+                    )
+                )
+            }
+        }
+    }
+
+    private fun handleSourceNewsResponse(response: Response<SourceResponse>): Resource<SourceResponse>? {
+
+        if (response.isSuccessful) {
+            response.body()?.let { resultResponse ->
+                return Resource.Success(resultResponse)
+            }
+        }
+        return Resource.Error(response.message())
+
     }
 
     private fun handleNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse>? {

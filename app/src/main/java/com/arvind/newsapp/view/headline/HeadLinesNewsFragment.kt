@@ -44,7 +44,7 @@ class HeadLinesNewsFragment : BaseFragment<FragmentHeadlinesNewsBinding, NewsVie
 
     private fun initsview() = with(binding) {
 
-        newsAdapter = NewsAdapter()
+        newsAdapter = NewsAdapter(requireContext())
         rvHeadlinesnews.apply {
             setHasFixedSize(true)
             adapter = newsAdapter

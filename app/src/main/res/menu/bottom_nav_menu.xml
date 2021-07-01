@@ -3,26 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/newsFragment"
+        android:id="@+id/nav_newsFragment"
         android:icon="@drawable/ic_baseline_home_24"
-        android:menuCategory="secondary"
         android:title="@string/daily_news" />
 
     <item
-        android:id="@+id/headlinesNewsFragment"
+        android:id="@+id/nav_headlinesNewsFragment"
         android:icon="@drawable/ic_headlines"
-        android:menuCategory="secondary"
         android:title="@string/headlines" />
 
     <item
-        android:id="@+id/sourcesNewsFragment"
+        android:id="@+id/nav_sourcesNewsFragment"
         android:icon="@drawable/ic_sources"
-        android:menuCategory="secondary"
         android:title="@string/source" />
 
     <item
-        android:id="@+id/savedNewsFragment"
+        android:id="@+id/nav_savedNewsFragment"
         android:icon="@drawable/ic_saved"
-        android:menuCategory="secondary"
         android:title="@string/saved" />
 </menu>

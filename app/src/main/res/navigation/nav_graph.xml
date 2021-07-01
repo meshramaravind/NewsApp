@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/NewsFragment">
+    app:startDestination="@id/nav_newsFragment">
 
     <fragment
-        android:id="@+id/NewsFragment"
+        android:id="@+id/nav_newsFragment"
         android:name="com.arvind.newsapp.view.news.NewsFragment"
         android:label="News"
         tools:layout="@layout/fragment_news">
@@ -14,18 +14,18 @@
     </fragment>
 
     <fragment
-        android:id="@+id/headlinesNewsFragment"
+        android:id="@+id/nav_headlinesNewsFragment"
         android:name="com.arvind.newsapp.view.headline.HeadLinesNewsFragment"
         android:label="Headline"
         tools:layout="@layout/fragment_headlines_news" />
     <fragment
-        android:id="@+id/sourcesNewsFragment"
+        android:id="@+id/nav_sourcesNewsFragment"
         android:name="com.arvind.newsapp.view.source.SourcesNewsFragment"
         android:label="Source"
         tools:layout="@layout/fragment_sources_news" />
 
     <fragment
-        android:id="@+id/savedNewsFragment"
+        android:id="@+id/nav_savedNewsFragment"
         android:name="com.arvind.newsapp.view.saved.SavedNewsFragment"
         android:label="Saved"
         tools:layout="@layout/fragment_saved_news" />

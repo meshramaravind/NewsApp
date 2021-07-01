@@ -11,4 +11,5 @@
     <string name="sample_news_desc">People are often put in a jam when they are asked a
         question that they don\'t fully understand,
         and try to talk their way out of it as they don\'t wish to reveal that they.</string>
+    <string name="save_news">Save news</string>
 </resources>

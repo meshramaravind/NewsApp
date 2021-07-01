@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <bool name="lightNavEnabled">true</bool>
 
-    <style name="Theme.NewsApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.NewsApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>

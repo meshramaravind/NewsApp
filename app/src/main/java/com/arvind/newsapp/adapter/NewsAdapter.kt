@@ -1,14 +1,23 @@
 package com.arvind.newsapp.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.arvind.newsapp.R
 import com.arvind.newsapp.databinding.ItemsNewsBinding
+import com.arvind.newsapp.databinding.LayoutBottomSaveditemsBinding
 import com.arvind.newsapp.response.Article
+import com.arvind.newsapp.view.news.NewsFragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class NewsAdapter:RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(private val context: Context) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+
+    private var bottomSheetDialog: BottomSheetDialog? = null
+    private lateinit var layoutBottomSaveditemsBinding: LayoutBottomSaveditemsBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapter.NewsViewHolder {
         return NewsViewHolder(
@@ -54,6 +63,24 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
             itemsNewsBinding.apply {
                 itemsNewsBinding.news = articleResponse
                 itemsNewsBinding.executePendingBindings()
+
+                ivMoreoptions.setOnClickListener {
+                    if (bottomSheetDialog == null) {
+                        bottomSheetDialog =
+                            BottomSheetDialog(context)
+                        layoutBottomSaveditemsBinding = DataBindingUtil.inflate(
+                            LayoutInflater.from(context),
+                            R.layout.layout_bottom_saveditems,
+                            null,
+                            false
+                        )
+                        bottomSheetDialog!!.setContentView(
+                            layoutBottomSaveditemsBinding.root
+                        )
+
+                    }
+                    bottomSheetDialog!!.show()
+                }
 
             }
 

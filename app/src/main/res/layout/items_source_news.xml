@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="news"
-            type="com.arvind.newsapp.response.Article" />
+            name="source"
+            type="com.arvind.newsapp.response.SourcesNews" />
 
     </data>
 
@@ -26,31 +26,20 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/articleImage"
-                urlToImage="@{news.urlToImage}"
+                android:id="@+id/iv_source"
+                url="@{source.url}"
                 android:layout_width="158dp"
                 android:layout_height="0dp"
-                android:background="@drawable/bg_image_loader"
+                android:background="@drawable/bg_image_loader_source"
                 android:contentDescription="@string/source_image"
                 android:scaleType="center"
+                android:layout_marginBottom="@dimen/_20sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/iv_source_news"
-                urltonewssource="@{news.urlToImage}"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="12dp"
-                android:background="@drawable/bg_image_loader_source"
-                android:contentDescription="@string/source_image"
-                android:scaleType="center"
-                app:layout_constraintStart_toEndOf="@+id/articleImage"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
-                android:id="@+id/tv_news_name"
+                android:id="@+id/tv_source_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -58,60 +47,47 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/open_sans_bold"
                 android:maxLines="1"
-                android:text="@{news.source.name}"
+                android:text="@{source.name}"
                 android:textColor="@color/colorgray"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/iv_source_news"
+                app:layout_constraintStart_toEndOf="@+id/iv_source"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="CNN" />
 
-
             <TextView
-                android:id="@+id/articleTitle"
+                android:id="@+id/tv_description_source"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="12dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="@{news.title}"
+                android:text="@{source.description}"
                 android:textColor="#A4000000"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/articleDateTime"
+                app:layout_constraintBottom_toTopOf="@+id/tv_category_source"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/articleImage"
+                app:layout_constraintStart_toEndOf="@+id/iv_source"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/sample_news_desc" />
 
             <TextView
-                android:id="@+id/articleDateTime"
+                android:id="@+id/tv_category_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginBottom="10dp"
+                android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{news.publishedAt}"
+                android:text="@{source.country}"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/articleImage"
-                tools:text=" 5 hours ago" />
+                app:layout_constraintStart_toEndOf="@+id/iv_source"
+                tools:text="us" />
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/iv_moreoptions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="5dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_baseline_more_vert_24"
-                android:tint="#666666"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-            </androidx.appcompat.widget.AppCompatImageButton>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,16 +1,19 @@
 package com.arvind.newsapp.view.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.arvind.newsapp.R
 import com.arvind.newsapp.databinding.ActivityMainBinding
 import com.arvind.newsapp.viewmodel.NewsViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -30,25 +33,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigation(binding: ActivityMainBinding) {
-        val navHost = supportFragmentManager.findFragmentById(R.id.navFragmentHost) as NavHostFragment
-        navController = navHost.navController
-        NavigationUI.setupWithNavController(binding.toolbar, navController)
-        binding.bottomNavigationView.setupWithNavController(navController)
-        binding.bottomNavigationView.setOnNavigationItemReselectedListener {
-            "Reselect blocked."
-        }
+        val navView: BottomNavigationView = binding.navView
 
-        binding.toolbar.setNavigationOnClickListener {
-            when (navController.currentDestination?.id) {
-                R.id.headlinesNewsFragment, R.id.sourcesNewsFragment, R.id.savedNewsFragment -> {
-                    if (onBackPressedDispatcher.hasEnabledCallbacks())
-                        onBackPressedDispatcher.onBackPressed()
-                    else
-                        navController.navigateUp()
-                }
-                else -> navController.navigateUp()
-            }
-        }
-
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_newsFragment,
+                R.id.nav_headlinesNewsFragment,
+                R.id.nav_sourcesNewsFragment,
+                R.id.nav_savedNewsFragment
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
+
+
 }

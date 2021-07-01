@@ -30,11 +30,10 @@ class NewsFragment : BaseFragment<FragmentNewsBinding, NewsViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initsview()
-
     }
 
     private fun initsview() = with(binding) {
-        newsAdapter = NewsAdapter()
+        newsAdapter = NewsAdapter(requireContext())
         rvNews.apply {
             setHasFixedSize(true)
             adapter = newsAdapter

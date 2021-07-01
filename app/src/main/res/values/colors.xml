@@ -11,4 +11,5 @@
     <color name="colorbgappbar">#D0F5F6</color>
     <color name="colorbackground">#F1F2F6</color>
     <color name="colorgray">#CCCCCC</color>
+    <color name="colorbottambar">#023B3C</color>
 </resources>
