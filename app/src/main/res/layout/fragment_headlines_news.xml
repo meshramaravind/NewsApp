@@ -3,80 +3,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.headlines.HeadlinesFragment">
+        tools:context=".view.headline.HeadLinesNewsFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_categories"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".view.news.NewsFragment">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/items_category_card" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_categories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_headlinesnews"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="@dimen/_50sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_categories"
+            tools:listitem="@layout/items_news" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_headlinesnews"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="8dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rv_categories"
-                tools:listitem="@layout/items_news" />
+        <ProgressBar
+            android:id="@+id/progressBar_headlinenews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorprogressbar"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ProgressBar
-                android:id="@+id/progressBar_headlinenews"
+
+        <LinearLayout
+            android:id="@+id/tryAgainLayout_headlinenews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_categories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/rv_categories"
+            app:layout_constraintTop_toTopOf="@+id/rv_categories">
+
+            <TextView
+                android:id="@+id/tryAgainMessage_headlinenews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:indeterminateTint="@color/black"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="No Internet Connection"
+                android:textColor="#BA000000"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
 
-
-            <LinearLayout
-                android:id="@+id/tryAgainLayout_headlinenews"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tryAgainButton_headlinenews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/rv_categories"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/rv_categories"
-                app:layout_constraintTop_toTopOf="@+id/rv_categories">
+                android:layout_marginTop="20dp"
+                android:text="Try Again"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/tryAgainMessage_headlinenews"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No Internet Connection"
-                    android:textColor="#BA000000"
-                    android:textSize="20sp"
-                    tools:ignore="HardcodedText" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/tryAgainButton_headlinenews"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Try Again"
-                    tools:ignore="HardcodedText" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

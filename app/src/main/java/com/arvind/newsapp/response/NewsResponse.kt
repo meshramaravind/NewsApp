@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 data class NewsResponse(
     val status: String,
     val totalResult: Int,
-    val articles: List<Article>,
+    val articles: MutableList<Article>,
 )
 
 @Entity(tableName = "news_table")

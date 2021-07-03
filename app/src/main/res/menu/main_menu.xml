@@ -2,12 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <item
-        android:id="@+id/action_night_mode"
-        android:checkable="true"
-        android:icon="@drawable/ic_day"
-        android:title="@string/text_ui_mode"
-        app:showAsAction="always" />
 
     <item
         android:id="@+id/searchMenuItem"
@@ -16,4 +10,12 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView"
         tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/action_night_mode"
+        android:checkable="true"
+        android:icon="@drawable/ic_day"
+        android:title="@string/text_ui_mode"
+        app:showAsAction="always" />
+
+
 </menu>

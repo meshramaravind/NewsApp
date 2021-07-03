@@ -11,6 +11,14 @@
         android:label="News"
         tools:layout="@layout/fragment_news">
 
+        <action
+            android:id="@+id/action_newsFragment_to_searchnewsFragment"
+            app:destination="@id/searchnewsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_in_right" />
+
     </fragment>
 
     <fragment
@@ -29,4 +37,12 @@
         android:name="com.arvind.newsapp.view.saved.SavedNewsFragment"
         android:label="Saved"
         tools:layout="@layout/fragment_saved_news" />
+
+    <fragment
+        android:id="@+id/searchnewsFragment"
+        android:name="com.arvind.newsapp.view.search.SearchNewsFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search_news">
+
+    </fragment>
 </navigation>

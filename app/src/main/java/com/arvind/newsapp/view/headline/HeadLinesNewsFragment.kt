@@ -35,11 +35,15 @@ class HeadLinesNewsFragment : BaseFragment<FragmentHeadlinesNewsBinding, NewsVie
 
     private fun initCategoriesRv() {
         categoriesAdapter = CategoriesAdapter(categories)
-        categoriesAdapter.onItemClickListener { viewModel.getHeadlinesNews(it) }
+        categoriesAdapter.onItemClickListener {
+            viewModel.getHeadlinesNews(it)
+
+        }
 
         rv_categories.apply {
             adapter = categoriesAdapter
         }
+
     }
 
     private fun initsview() = with(binding) {
@@ -50,6 +54,7 @@ class HeadLinesNewsFragment : BaseFragment<FragmentHeadlinesNewsBinding, NewsVie
             adapter = newsAdapter
             setupobserver()
         }
+
 
     }
 
@@ -71,7 +76,9 @@ class HeadLinesNewsFragment : BaseFragment<FragmentHeadlinesNewsBinding, NewsVie
                 }
             }
         })
+
     }
+
 
     private fun tryAgainStatus(status: Boolean, message: String = "message") {
         if (status) {

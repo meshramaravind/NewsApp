@@ -5,14 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.arvind.newsapp.adapter.NewsAdapter
 import com.arvind.newsapp.adapter.SourceNewsAdapter
 import com.arvind.newsapp.databinding.FragmentSourcesNewsBinding
 import com.arvind.newsapp.utils.Resource
 import com.arvind.newsapp.view.base.BaseFragment
 import com.arvind.newsapp.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_news.*
 import kotlinx.android.synthetic.main.fragment_sources_news.*
 
 @AndroidEntryPoint
@@ -33,7 +31,7 @@ class SourcesNewsFragment : BaseFragment<FragmentSourcesNewsBinding, NewsViewMod
     private fun initsview() = with(binding) {
         viewModel.getSourcesNews()
 
-        sourceNewsAdapter = SourceNewsAdapter()
+        sourceNewsAdapter = SourceNewsAdapter(requireContext())
         rvSourcenews.apply {
             setHasFixedSize(true)
             adapter = sourceNewsAdapter

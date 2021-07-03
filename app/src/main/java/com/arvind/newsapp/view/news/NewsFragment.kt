@@ -7,6 +7,7 @@ import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.arvind.newsapp.R
 import com.arvind.newsapp.adapter.NewsAdapter
 import com.arvind.newsapp.databinding.FragmentNewsBinding
@@ -60,12 +61,22 @@ class NewsFragment : BaseFragment<FragmentNewsBinding, NewsViewModel>() {
                 }
             }
         })
+
+        swiperefershnews()
+    }
+
+    private fun swiperefershnews() {
+        swipereferesh_news.setOnRefreshListener {
+            viewModel.getNews()
+            swipereferesh_news.isRefreshing = false
+        }
     }
 
     private fun tryAgainStatus(status: Boolean, message: String = "message") {
         if (status) {
             tryAgainMessage.text = message
             tryAgainLayout.visibility = View.VISIBLE
+
         } else {
             tryAgainLayout.visibility = View.GONE
         }
@@ -94,6 +105,13 @@ class NewsFragment : BaseFragment<FragmentNewsBinding, NewsViewModel>() {
             R.id.action_night_mode -> {
                 item.isChecked = !item.isChecked
                 setUIMode(item, item.isChecked)
+                true
+            }
+
+            R.id.searchMenuItem -> {
+                findNavController().navigate(
+                    R.id.action_newsFragment_to_searchnewsFragment
+                )
                 true
             }
 

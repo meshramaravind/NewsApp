@@ -46,7 +46,8 @@ class NewsViewModel @Inject constructor(
 
     private var news = 1
     private var headlinenews = 1
-    private var searchNewsPage = 1
+    var searchNewsPage = 1
+    var searchNewsResponse: NewsResponse? = null
 
     init {
         getNews()
@@ -73,6 +74,7 @@ class NewsViewModel @Inject constructor(
         try {
             if (hasInternetConnection<NewsApp>()) {
                 val response = repository.getNews()
+                newsDataTemp.postValue(Resource.Success(response.body()!!))
                 newsData.postValue(handleNewsResponse(response))
             } else {
                 newsData.postValue(Resource.Error("No Internet Connection"))
@@ -125,7 +127,7 @@ class NewsViewModel @Inject constructor(
         try {
             if (hasInternetConnection<NewsApp>()) {
                 val response = repository.getSearchNews(searchQuery, searchNewsPage)
-                newsData.postValue(handleNewsResponse(response))
+                newsData.postValue(handleSearchNewsResponse(response))
             } else {
                 newsData.postValue(Resource.Error("No Internet Connection"))
                 toast(getApplication(), "No Internet Connection.!")
@@ -144,6 +146,25 @@ class NewsViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    private fun handleSearchNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse>? {
+        if (response.isSuccessful) {
+            response.body()?.let { resultResponse ->
+                searchNewsPage++
+                if (searchNewsResponse == null) {
+                    searchNewsResponse = resultResponse
+                } else {
+                    val oldArticles = searchNewsResponse?.articles
+                    val newArticles = resultResponse.articles
+
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success(searchNewsResponse ?: resultResponse)
+            }
+        }
+        return Resource.Error(response.message())
+
     }
 
     private suspend fun fetchSourcesNews() {
@@ -191,5 +212,9 @@ class NewsViewModel @Inject constructor(
         }
         return Resource.Error(response.message())
 
+    }
+
+    fun onSearchClose() {
+        newsData.postValue(newsDataTemp.value)
     }
 }

@@ -4,8 +4,8 @@
 
     <style name="Theme.NewsApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/colorbottambar</item>
+        <item name="colorPrimaryVariant">@color/colorbottambar</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -14,14 +14,14 @@
         <!-- Status bar color. -->
         <!-- Customize your theme here. -->
 
-        <item name="android:statusBarColor" tools:targetApi="l">@color/colorbgappbar</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorbottambar</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/lightNavEnabled</item>
-        <item name="android:navigationBarColor" tools:targetApi="o">@color/colorbgappbar</item>
+        <item name="android:navigationBarColor" tools:targetApi="o">@color/colorbottambar</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">@bool/lightNavEnabled
         </item>
     </style>
 
-    <style name="Theme.NewsApp.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.NewsApp.NoActionBar" parent="Theme.NewsApp">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
@@ -30,4 +30,17 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">5%</item>
+    </style>
+
 </resources>

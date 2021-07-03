@@ -1,23 +1,20 @@
 package com.arvind.newsapp.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.arvind.newsapp.R
 import com.arvind.newsapp.databinding.ItemsNewsBinding
-import com.arvind.newsapp.databinding.LayoutBottomSaveditemsBinding
 import com.arvind.newsapp.response.Article
-import com.arvind.newsapp.view.news.NewsFragment
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class NewsAdapter(private val context: Context) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
-
-    private var bottomSheetDialog: BottomSheetDialog? = null
-    private lateinit var layoutBottomSaveditemsBinding: LayoutBottomSaveditemsBinding
+class NewsAdapter(private val context: Context) :
+    RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapter.NewsViewHolder {
         return NewsViewHolder(
@@ -64,23 +61,29 @@ class NewsAdapter(private val context: Context) : RecyclerView.Adapter<NewsAdapt
                 itemsNewsBinding.news = articleResponse
                 itemsNewsBinding.executePendingBindings()
 
-                ivMoreoptions.setOnClickListener {
-                    if (bottomSheetDialog == null) {
-                        bottomSheetDialog =
-                            BottomSheetDialog(context)
-                        layoutBottomSaveditemsBinding = DataBindingUtil.inflate(
-                            LayoutInflater.from(context),
-                            R.layout.layout_bottom_saveditems,
-                            null,
-                            false
-                        )
-                        bottomSheetDialog!!.setContentView(
-                            layoutBottomSaveditemsBinding.root
-                        )
-
+                itemsNewsBinding.ivShareNews.setOnClickListener {
+                    val sendIntent: Intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, articleResponse.url)
+                        type = "text/plain"
                     }
-                    bottomSheetDialog!!.show()
+
+                    val shareIntent = Intent.createChooser(sendIntent, null)
+                    context.startActivity(shareIntent)
                 }
+
+                ivGotoNews.setOnClickListener {
+                    val builder = CustomTabsIntent.Builder()
+                    val customTabsIntent = builder.build()
+                    customTabsIntent.launchUrl(context, Uri.parse(articleResponse.url))
+                }
+
+                itemsNewsBinding.root.setOnClickListener {
+                    val builder = CustomTabsIntent.Builder()
+                    val customTabsIntent = builder.build()
+                    customTabsIntent.launchUrl(context, Uri.parse(articleResponse.url))
+                }
+
 
             }
 

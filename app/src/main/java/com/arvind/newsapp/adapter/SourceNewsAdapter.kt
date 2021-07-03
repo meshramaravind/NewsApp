@@ -1,17 +1,19 @@
 package com.arvind.newsapp.adapter
 
+import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.arvind.newsapp.databinding.ItemsNewsBinding
 import com.arvind.newsapp.databinding.ItemsSourceNewsBinding
-import com.arvind.newsapp.response.Article
-import com.arvind.newsapp.response.SourceResponse
 import com.arvind.newsapp.response.SourcesNews
 
-class SourceNewsAdapter : RecyclerView.Adapter<SourceNewsAdapter.NewsViewHolder>() {
+
+class SourceNewsAdapter(private val context: Context) :
+    RecyclerView.Adapter<SourceNewsAdapter.NewsViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -60,6 +62,12 @@ class SourceNewsAdapter : RecyclerView.Adapter<SourceNewsAdapter.NewsViewHolder>
             itemsSourceNewsBinding.apply {
                 itemsSourceNewsBinding.source = sourceResponse
                 itemsSourceNewsBinding.executePendingBindings()
+
+                itemsSourceNewsBinding.root.setOnClickListener {
+                    val builder = CustomTabsIntent.Builder()
+                    val customTabsIntent = builder.build()
+                    customTabsIntent.launchUrl(context, Uri.parse(sourceResponse.url))
+                }
 
             }
 

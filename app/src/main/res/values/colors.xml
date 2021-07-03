@@ -8,8 +8,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorbgappbar">#D0F5F6</color>
-    <color name="colorbackground">#F1F2F6</color>
+    <color name="colorbgappbar">#FFFFFFFF</color>
+    <color name="colorbackground">#FCFCFE</color>
     <color name="colorgray">#CCCCCC</color>
-    <color name="colorbottambar">#023B3C</color>
+    <color name="colorbottambar">#EB0D474E</color>
+    <color name="colorgrayview">#c0c0c0</color>
+    <color name="colorcardview">#FFFFFFFF</color>
+    <color name="colortexttitle">#A4000000</color>
+    <color name="colordilaog">#FFFFFFFF</color>
+    <color name="colorcategory">#FF5722</color>
+    <color name="colordaynighticon">#FFFFFFFF</color>
+    <color name="colorprogressbar">#38414A</color>
+    <color name="coloricon">#CCCCCC</color>
+
 </resources>
