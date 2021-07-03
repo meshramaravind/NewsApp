@@ -10,13 +10,13 @@ Dark Theme & Light Theme)
 # Day Mode 🌞
 <p float="left">
 
- <img src="https://user-images.githubusercontent.com/25154589/124357745-c1a59400-dc3a-11eb-87c3-03ea313be4b6.png" width="200" />
+ <img src="https://user-images.githubusercontent.com/25154589/124358832-bb65e680-dc3f-11eb-87a1-eec094f2f7f6.png" width="200" />
+
+ <img src="https://user-images.githubusercontent.com/25154589/124358866-e05a5980-dc3f-11eb-9006-a235a27cc03a.png" width="200" />
  
- <img src="https://user-images.githubusercontent.com/25154589/124357773-e437ad00-dc3a-11eb-9299-22ee4f9696b4.png" width="200" />
+ <img src="https://user-images.githubusercontent.com/25154589/124358930-37f8c500-dc40-11eb-9721-fb1421fbeb96.png" width="200" />
  
- <img src="https://user-images.githubusercontent.com/25154589/124357815-16490f00-dc3b-11eb-9c8c-6772fa482cb0.png" width="200" />
- 
- <img src="https://user-images.githubusercontent.com/25154589/124357923-8c4d7600-dc3b-11eb-858c-1e8a20bf52e6.png" width="200" />
+ <img src="https://user-images.githubusercontent.com/25154589/124358947-4d6def00-dc40-11eb-9703-8e361b968fb6.png" width="200" />
  
  <img src="https://user-images.githubusercontent.com/25154589/124357983-cae33080-dc3b-11eb-9a1b-97ae39c41af4.png" width="200" />
  
