@@ -24,8 +24,8 @@ Dark Theme & Light Theme)
 
 # Dark Mode Too 😉
 <p float="left">
-  
-  <img src="https://user-images.githubusercontent.com/25154589/124359260-ccaff280-dc41-11eb-879b-855cb719e01e.png" width="200" />
+ 
+  <img src="https://user-images.githubusercontent.com/25154589/124371504-fc8de300-dc9f-11eb-9cbe-52bcdf6dc3fb.png" width="200" />
 
   <img src="https://user-images.githubusercontent.com/25154589/124359705-b73bc800-dc43-11eb-8f80-74f490e0568a.png" width="200" />
 
