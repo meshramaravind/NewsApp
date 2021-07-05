@@ -18,7 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val newsViewModel: NewsViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_NewsApp)
         super.onCreate(savedInstanceState)
@@ -35,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+//         Passing each menu ID as a set of Ids because each
+//         menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_newsFragment,
@@ -46,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        setupActionBarWithNavController(navController,appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
 
+    }
 
 }

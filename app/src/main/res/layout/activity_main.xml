@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorbackground"
+        android:fitsSystemWindows="true"
         tools:context=".view.main.MainActivity">
 
         <!--        <com.google.android.material.appbar.AppBarLayout-->
@@ -17,13 +18,15 @@
         <!--            <androidx.appcompat.widget.Toolbar-->
         <!--                android:id="@+id/toolbar"-->
         <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:background="@color/colorbgappbar"-->
+        <!--                android:layout_height="?attr/actionBarSize"-->
+        <!--                android:background="@color/colorbackground"-->
         <!--                android:elevation="4dp"-->
-        <!--                android:theme="@style/AppTheme.AppBarOverlay"-->
         <!--                app:buttonGravity="center_vertical"-->
+        <!--                app:contentInsetLeft="0dp"-->
+        <!--                app:contentInsetStart="0dp"-->
+        <!--                app:contentInsetStartWithNavigation="0dp"-->
         <!--                app:layout_scrollFlags="scroll|enterAlways"-->
-        <!--                app:navigationIcon="@null"-->
+        <!--                app:theme="@style/ThemeOverlay.AppCompat.Dark"-->
         <!--                app:title="@string/app_name"-->
         <!--                app:titleTextColor="@color/black" />-->
         <!--        </com.google.android.material.appbar.AppBarLayout>-->

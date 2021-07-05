@@ -10,8 +10,8 @@
 
     <color name="colorbgappbar">#FFFFFFFF</color>
     <color name="colorbackground">#FCFCFE</color>
-    <color name="colorgray">#CCCCCC</color>
-    <color name="colorbottambar">#EB0D474E</color>
+    <color name="colorgray">#DDDDDD</color>
+    <color name="colorbottambar">#3B6BE3</color>
     <color name="colorgrayview">#c0c0c0</color>
     <color name="colorcardview">#FFFFFFFF</color>
     <color name="colortexttitle">#A4000000</color>

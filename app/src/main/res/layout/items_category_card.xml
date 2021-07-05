@@ -9,7 +9,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardCornerRadius="5dp"
+    app:cardCornerRadius="@dimen/_12sdp"
     app:cardElevation="0dp">
 
     <LinearLayout
@@ -21,9 +21,9 @@
             android:id="@+id/tv_categoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="6dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="8dp"
             android:text="Technology"
             android:textColor="@color/colorgray"
