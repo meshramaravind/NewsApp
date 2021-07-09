@@ -40,10 +40,10 @@ class SearchNewsFragment : BaseFragment<FragmentSearchNewsBinding, NewsViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpRecyclerView()
+       inistview()
     }
 
-    private fun setUpRecyclerView() = with(binding) {
+    private fun inistview() = with(binding) {
         newsAdapter = NewsAdapter(requireContext())
         rv_SearchNews.apply {
             adapter = newsAdapter

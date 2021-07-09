@@ -6,6 +6,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(private val apiService: ApiService) {
+
     suspend fun getNews() = apiService.getNews()
 
     suspend fun getTopHeadlines(category: String, page: Int): Response<NewsResponse> {

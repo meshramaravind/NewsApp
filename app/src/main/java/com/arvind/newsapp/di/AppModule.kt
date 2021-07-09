@@ -3,14 +3,12 @@ package com.arvind.newsapp.di
 import android.app.Application
 import com.arvind.newsapp.repository.NewsRepository
 import com.arvind.newsapp.storage.UIModeDataStore
-import com.arvind.newsapp.utils.API_Key
 import com.arvind.newsapp.utils.BASE_URL
 import com.arvind.newsapp.webapi.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
@@ -71,7 +69,6 @@ object AppModule {
     fun providesNewsRepository(apiService: ApiService): NewsRepository {
         return NewsRepository(apiService)
     }
-
 
     @Singleton
     @Provides

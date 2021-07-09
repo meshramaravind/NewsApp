@@ -21,10 +21,12 @@
         </item>
     </style>
 
-    <style name="Theme.NewsApp.NoActionBar" parent="Theme.NewsApp">
+    <style name="Theme.NewsApp.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
+        <item name="colorPrimaryDark">@color/colorbottambar</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
