@@ -28,12 +28,12 @@ Dark Theme & Light Theme)
 <p float="left">
  
   <img src="https://user-images.githubusercontent.com/25154589/124371504-fc8de300-dc9f-11eb-9cbe-52bcdf6dc3fb.png" width="200" />
-
-  <img src="https://user-images.githubusercontent.com/25154589/124359705-b73bc800-dc43-11eb-8f80-74f490e0568a.png" width="200" />
+ 
+  <img src="https://user-images.githubusercontent.com/25154589/125150291-59841000-e15c-11eb-9818-43685ed8b8f9.png" width="200" />
 
   <img src="https://user-images.githubusercontent.com/25154589/124359624-675d0100-dc43-11eb-93ad-4e9103ef6c55.png" width="200" />
  
-  <img src="https://user-images.githubusercontent.com/25154589/124359741-e94d2a00-dc43-11eb-8d0b-96791385dfb9.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/25154589/125150309-6dc80d00-e15c-11eb-82fc-2758993aeecb.png" width="200" />
 
  </p>
 
