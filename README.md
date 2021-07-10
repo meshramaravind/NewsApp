@@ -36,6 +36,9 @@ Dark Theme & Light Theme)
   <img src="https://user-images.githubusercontent.com/25154589/125150309-6dc80d00-e15c-11eb-82fc-2758993aeecb.png" width="200" />
 
  </p>
+ 
+ # News API
+ https://newsapi.org/s/india-news-api
 
 
 
