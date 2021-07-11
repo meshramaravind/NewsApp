@@ -39,6 +39,7 @@ Dark Theme & Light Theme)
  
  # News API
  https://newsapi.org/s/india-news-api
+ https://newsapi.org/
 
 
 
